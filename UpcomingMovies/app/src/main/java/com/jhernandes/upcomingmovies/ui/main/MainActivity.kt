@@ -1,8 +1,8 @@
-package com.jhernandes.upcomingmovies
+package com.jhernandes.upcomingmovies.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jhernandes.upcomingmovies.ui.main.MainFragment
+import com.jhernandes.upcomingmovies.R
 
 class MainActivity : AppCompatActivity() {
 

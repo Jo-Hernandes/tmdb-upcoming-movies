@@ -1,14 +1,14 @@
 package com.jhernandes.datamodule
 
 import android.content.Context
+import com.jhernandes.datamodule.repository.DataRepository
+import com.jhernandes.datamodule.repository.DataRepositoryImpl
 import com.jhernandes.datamodule.repository.ImageLoader
 import com.jhernandes.datamodule.repository.ImageLoaderImpl
-import com.jhernandes.datamodule.restService.RestImpl
-import com.jhernandes.datamodule.restService.WebService
 
 class ServiceModule {
 
-    fun getRestService () : WebService = RestImpl().provideWebService()
+    fun getRestService () : DataRepository = DataRepositoryImpl()
 
     fun getImageService (context : Context) : ImageLoader = ImageLoaderImpl(context)
 
