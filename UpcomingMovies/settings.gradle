@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':datamodule'
 rootProject.name='Upcoming Movies'

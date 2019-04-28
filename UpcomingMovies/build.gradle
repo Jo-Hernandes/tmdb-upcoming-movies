@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha12'
@@ -19,8 +19,13 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
+    ext {
+        anko_version='0.10.4'
+        rxjava_version = '2.1.7'
+        mockito_version = "2.21.0"
+    }
+
 }
 
 task clean(type: Delete) {
