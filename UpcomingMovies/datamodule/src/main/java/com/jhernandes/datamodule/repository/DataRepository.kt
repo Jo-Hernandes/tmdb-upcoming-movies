@@ -6,7 +6,7 @@ import io.reactivex.Single
 
 interface DataRepository {
 
-    fun getUpcomingMovies(): Single<UpcomingListResult>
+    fun getUpcomingMovies(): Observable<UpcomingListResult>
 
     fun getUpcomingMovies(page: Int): Observable<UpcomingListResult>
 }

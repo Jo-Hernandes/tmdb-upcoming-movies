@@ -11,6 +11,7 @@ class WebAdapter {
             movieResult.original_title,
             movieResult.poster_path,
             movieResult.release_date,
-            movieResult.overview
-            )
+            movieResult.overview,
+            movieResult.id
+        )
 }

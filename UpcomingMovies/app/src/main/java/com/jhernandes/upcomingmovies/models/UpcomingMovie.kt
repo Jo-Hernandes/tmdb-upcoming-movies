@@ -1,9 +1,10 @@
 package com.jhernandes.upcomingmovies.models
 
 data class UpcomingMovie(
-    val backdrop_path: String,
+    val backdropImagePath: String,
     val original_title: String,
-    val poster_path: String,
-    val release_date: String,
-    val overview: String
+    val posterPath: String,
+    val releaseDate: String,
+    val movieResume: String,
+    val id: Int
 )
