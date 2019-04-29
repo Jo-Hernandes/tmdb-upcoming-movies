@@ -1,9 +1,11 @@
 package com.jhernandes.upcomingmovies.commons
 
+import android.view.View.GONE
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.jhernandes.datamodule.ServiceModule
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -22,8 +24,10 @@ fun ImageView.setImage(url: String?) {
 
 @BindingAdapter("readableDate")
 fun TextView.setDateFormatted(date: String) {
-    if (!date.isBlank()) {
+    try{
         val tempDate = SimpleDateFormat(baseDateFormat, Locale.getDefault()).parse(date)
         this.text = SimpleDateFormat(readableFormat, Locale.getDefault()).format(tempDate)
+    } catch (e : Exception) {
+        this.visibility = GONE
     }
 }
