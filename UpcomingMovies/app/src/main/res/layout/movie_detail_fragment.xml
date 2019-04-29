@@ -47,7 +47,7 @@
                     style="@style/title_style"
                     android:layout_margin="10dp"
                     tools:text="MOVIE TITLE"
-                    android:text="@{movie.original_title}"
+                    android:text="@{movie.getMovieTitle}"
                 />
 
                 <TextView

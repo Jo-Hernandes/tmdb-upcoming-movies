@@ -16,6 +16,6 @@ class MovieViewHolder(val binding: ItemMovieViewholderBinding) : RecyclerView.Vi
     }
 
     fun showGenreListItems(genres : List<MovieGenre>?) {
-        binding.textviewThumbGenresLabel.text = genres?.joinToString(separator = ", ", transform = { it.name })
+       genres?.let {  binding.textviewThumbGenresLabel.text = genres.joinToString(separator = ", ", transform = { it.name }) }
     }
 }

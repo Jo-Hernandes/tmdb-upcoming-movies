@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit
 class MainViewModel(val dataSource : MoviesDataSource) : ViewModel(),
     SearchView.OnQueryTextListener {
 
-
     private val textChangeSubject: PublishSubject<String> = PublishSubject.create<String>()
     var listLiveData: LiveData<PagedList<UpcomingMovie>>? = null
     var queryLiveData : LiveData<PagedList<UpcomingMovie>>? = null
@@ -59,9 +58,7 @@ class MainViewModel(val dataSource : MoviesDataSource) : ViewModel(),
         return false
     }
 
-    private fun queryChangeObserver() : Observable<String> {
-        return textChangeSubject.debounce(200, TimeUnit.MILLISECONDS).distinctUntilChanged()
-    }
+    private fun queryChangeObserver() : Observable<String> = textChangeSubject.debounce(200, TimeUnit.MILLISECONDS).distinctUntilChanged()
 
     private fun consumeString () : Consumer<String> = Consumer {
         queryLiveData = LivePagedListBuilder<Int, UpcomingMovie>(MovieQueryPagedFactory(dataSource, it), config).build()
