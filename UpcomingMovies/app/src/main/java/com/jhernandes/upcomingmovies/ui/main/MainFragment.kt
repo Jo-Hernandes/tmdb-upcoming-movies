@@ -6,12 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
+
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.jhernandes.upcomingmovies.R
-import com.jhernandes.upcomingmovies.databinding.ItemMovieViewholderBinding
 import com.jhernandes.upcomingmovies.databinding.MainFragmentBinding
 import com.jhernandes.upcomingmovies.models.UpcomingMovie
 import com.jhernandes.upcomingmovies.paging.MoviesPagedListAdapter
@@ -55,8 +52,6 @@ class MainFragment : Fragment(), MoviesPagedListAdapter.ItemClickedLister {
         bundle.putSerializable(MovieDetailFragment.EXTRA_MOVIE, movie)
 
         movie?.let {  MovieDetailFragment.getDialog(movie).show(fragmentManager, "") }
-
-        // findNavController().navigate(R.id.action_mainFragment_to_movieDetailFragment, bundle)
     }
 
 }

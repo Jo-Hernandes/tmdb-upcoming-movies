@@ -12,7 +12,6 @@ import io.reactivex.functions.BiFunction
 class PagedMoviesListDataSource(private val moviesDataSource: MoviesDataSource) :
     PageKeyedDataSource<Int, UpcomingMovie>() {
 
-    private val errorMessage: MutableLiveData<String> = MutableLiveData()
     private var genreList: List<MovieGenre> = mutableListOf()
 
     @SuppressLint("CheckResult")
@@ -32,7 +31,7 @@ class PagedMoviesListDataSource(private val moviesDataSource: MoviesDataSource) 
                 })
             .subscribe(
                 { callback.onResult(it, null, 2) },
-                { errorMessage.postValue(it.localizedMessage) }
+                { it.printStackTrace() }
             )
     }
 
@@ -47,8 +46,7 @@ class PagedMoviesListDataSource(private val moviesDataSource: MoviesDataSource) 
                     callback.onResult(it, params.key + 1)
                 },
                 {
-                    it.printStackTrace()
-                    errorMessage.postValue(it.localizedMessage) }
+                    it.printStackTrace() }
             )
     }
 

@@ -46,4 +46,12 @@ class DataRepositoryTest {
             }
     }
 
+    @Test
+    fun checkGenreList() {
+        DataRepositoryImpl().getMoviesGenreList()
+            .test()
+            .assertNoTimeout()
+            .assertValue { !it.genres.isEmpty() }
+    }
+
 }

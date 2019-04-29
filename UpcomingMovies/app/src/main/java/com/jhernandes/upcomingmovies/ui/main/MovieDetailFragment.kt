@@ -14,7 +14,7 @@ import com.jhernandes.upcomingmovies.models.UpcomingMovie
 class MovieDetailFragment : DialogFragment() {
 
     companion object {
-        val EXTRA_MOVIE: String = "movie_details_to_show"
+        const val EXTRA_MOVIE: String = "movie_details_to_show"
 
         fun getDialog(movie : UpcomingMovie): MovieDetailFragment {
             val dialog = MovieDetailFragment()

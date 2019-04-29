@@ -23,5 +23,4 @@ class MainViewModel(moviesPagedFactory : UpcomingMoviesPagedFactory) : ViewModel
     }
 
 
-    // fun getErrorMessage () = Transformations.switchMap(moviesPagedFactory, PagedMoviesListAdapterClass::errorMessage)
 }

@@ -3,7 +3,6 @@ package com.jhernandes.upcomingmovies.paging
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.jhernandes.upcomingmovies.databinding.ItemMovieViewholderBinding
 import com.jhernandes.upcomingmovies.models.UpcomingMovie
 
 class MoviesPagedListAdapter(private val listener : ItemClickedLister) : PagedListAdapter<UpcomingMovie, MovieViewHolder>(diffCallback) {

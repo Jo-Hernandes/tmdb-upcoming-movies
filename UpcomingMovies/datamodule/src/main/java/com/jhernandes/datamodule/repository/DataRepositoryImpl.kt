@@ -19,4 +19,6 @@ class DataRepositoryImpl : DataRepository {
     override fun getMoviesGenreList() = getRestService().getGenresList(key)
 
     private fun getRestService () : WebService = RestImpl().provideWebService()
+
+
 }
