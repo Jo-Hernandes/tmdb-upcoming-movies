@@ -14,11 +14,27 @@ class WebSourceDataImpl(private val webRepository: DataRepository) : MoviesDataS
         return loadMovies(1)
     }
 
-    override fun loadMore(position : Int): Single<MutableList<UpcomingMovie>> {
-       return loadMovies(position)
+    override fun loadMore(position: Int): Single<MutableList<UpcomingMovie>> {
+        return loadMovies(position)
     }
 
-    private fun loadMovies(page: Int ): Single<MutableList<UpcomingMovie>> {
+    override fun getMovieGenresList(): Single<List<MovieGenre>> {
+        return webRepository.getMoviesGenreList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .flatMap { Observable.just(it.genres) }
+            .single(listOf())
+    }
+
+    override fun queryMovie(query: String): Single<MutableList<UpcomingMovie>> {
+        return searchMovie(query, 1)
+    }
+
+    override fun queryMovie(query: String, page: Int): Single<MutableList<UpcomingMovie>> {
+        return searchMovie(query, page)
+    }
+
+    private fun loadMovies(page: Int): Single<MutableList<UpcomingMovie>> {
         return webRepository.getUpcomingMovies(page)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -27,13 +43,13 @@ class WebSourceDataImpl(private val webRepository: DataRepository) : MoviesDataS
             .toList()
     }
 
-    override fun getMovieGenresList(): Single<List<MovieGenre>> {
-        return webRepository.getMoviesGenreList()
+    private fun searchMovie(query: String, page : Int): Single<MutableList<UpcomingMovie>> {
+        return webRepository.getMovieQuery(query, page)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .flatMap { Observable.just(it.genres)}
-            .single(listOf())
+            .flatMapIterable { response -> response.results }
+            .map { result -> WebAdapter().getFromResult(result) }
+            .toList()
     }
-
 }
 

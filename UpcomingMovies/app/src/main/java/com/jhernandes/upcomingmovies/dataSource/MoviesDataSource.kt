@@ -11,4 +11,9 @@ interface MoviesDataSource {
     fun loadMore(position : Int) : Single<MutableList<UpcomingMovie>>
 
     fun getMovieGenresList() : Single<List<MovieGenre>>
+
+    fun queryMovie(query : String) : Single<MutableList<UpcomingMovie>>
+
+    fun queryMovie(query : String, page : Int) : Single<MutableList<UpcomingMovie>>
+
 }

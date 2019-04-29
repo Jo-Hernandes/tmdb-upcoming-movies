@@ -1,7 +1,7 @@
 package com.jhernandes.datamodule.models
 
 
-data class UpcomingListResult(
+data class MovieListResult(
     val dates: Dates,
     val page: Int,
     val results: List<Result>,
