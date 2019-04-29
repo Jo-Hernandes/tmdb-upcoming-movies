@@ -19,4 +19,12 @@
         <item name="android:textSize">12sp</item>
         <item name="android:padding">@dimen/small_padding</item>
     </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
 </resources>

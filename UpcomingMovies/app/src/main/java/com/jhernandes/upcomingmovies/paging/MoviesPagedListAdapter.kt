@@ -3,15 +3,18 @@ package com.jhernandes.upcomingmovies.paging
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import com.jhernandes.upcomingmovies.databinding.ItemMovieViewholderBinding
 import com.jhernandes.upcomingmovies.models.UpcomingMovie
 
-class MoviesPagedListAdapter : PagedListAdapter<UpcomingMovie, MovieViewHolder>(diffCallback) {
+class MoviesPagedListAdapter(private val listener : ItemClickedLister) : PagedListAdapter<UpcomingMovie, MovieViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder = MovieViewHolder.create(parent)
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.binding.movie = getItem(position)
-        holder.showGenreListItems(getItem(position)?.namedGenresList)
+        val movieInPosition = getItem(position)
+        holder.binding.movie = movieInPosition
+        holder.showGenreListItems(movieInPosition?.namedGenresList)
+        holder.itemView.setOnClickListener { listener.onItemClicked(movieInPosition) }
     }
 
     companion object {
@@ -24,5 +27,8 @@ class MoviesPagedListAdapter : PagedListAdapter<UpcomingMovie, MovieViewHolder>(
         }
     }
 
+    interface ItemClickedLister {
+        fun onItemClicked( movie: UpcomingMovie? )
+    }
 
 }

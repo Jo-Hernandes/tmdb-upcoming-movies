@@ -17,8 +17,8 @@ fun ImageView.setThumbnail(url: String?) {
 }
 
 @BindingAdapter("imageUrl")
-fun ImageView.setImage(url: String) {
-    ServiceModule().getImageService(this.context).loadImageInto(this, url)
+fun ImageView.setImage(url: String?) {
+    url?.let { ServiceModule().getImageService(this.context).loadImageInto(this, url) }
 }
 
 @BindingAdapter("readableDate")
