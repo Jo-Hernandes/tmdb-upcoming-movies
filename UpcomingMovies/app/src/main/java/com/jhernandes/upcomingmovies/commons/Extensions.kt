@@ -12,8 +12,8 @@ private var readableFormat = "MM-dd-yyyy"
 
 
 @BindingAdapter("thumbnailUrl")
-fun ImageView.setThumbnail(url: String) {
-    ServiceModule().getImageService(this.context).loadImageInto(this, url, true)
+fun ImageView.setThumbnail(url: String?) {
+    url?.let { ServiceModule().getImageService(this.context).loadImageInto(this, it, true) }
 }
 
 @BindingAdapter("imageUrl")

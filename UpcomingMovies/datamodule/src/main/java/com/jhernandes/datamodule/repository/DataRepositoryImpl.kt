@@ -1,8 +1,10 @@
 package com.jhernandes.datamodule.repository
 
 import com.jhernandes.datamodule.BuildConfig
+import com.jhernandes.datamodule.models.MovieGenre
 import com.jhernandes.datamodule.restService.RestImpl
 import com.jhernandes.datamodule.restService.WebService
+import io.reactivex.Observable
 
 class DataRepositoryImpl : DataRepository {
 
@@ -14,6 +16,7 @@ class DataRepositoryImpl : DataRepository {
 
     override fun getUpcomingMovies(page: Int) = getRestService().getUpcomingMovies(key, page)
 
-    private fun getRestService () : WebService = RestImpl().provideWebService()
+    override fun getMoviesGenreList() = getRestService().getGenresList(key)
 
+    private fun getRestService () : WebService = RestImpl().provideWebService()
 }

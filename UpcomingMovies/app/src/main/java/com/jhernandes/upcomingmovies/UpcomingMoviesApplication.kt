@@ -11,9 +11,7 @@ class UpcomingMoviesApplication : Application(){
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            // Android context
             androidContext(this@UpcomingMoviesApplication)
-            // modules
             modules(application + dataSource)
         }
     }

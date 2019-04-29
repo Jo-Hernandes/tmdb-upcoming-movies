@@ -12,5 +12,5 @@ val dataSource = module {
     single { ServiceModule().getImageService(get()) }
 
     factory<MoviesDataSource> { WebSourceDataImpl(get()) }
-    factory<UpcomingMoviesPagedFactory> { UpcomingMoviesPagedFactory(get()) }
+    factory { UpcomingMoviesPagedFactory(get()) }
 }

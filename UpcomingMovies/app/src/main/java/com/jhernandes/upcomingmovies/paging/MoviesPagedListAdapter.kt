@@ -11,6 +11,7 @@ class MoviesPagedListAdapter : PagedListAdapter<UpcomingMovie, MovieViewHolder>(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.binding.movie = getItem(position)
+        holder.showGenreListItems(getItem(position)?.namedGenresList)
     }
 
     companion object {

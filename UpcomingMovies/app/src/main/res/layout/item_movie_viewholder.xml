@@ -71,6 +71,18 @@
                 app:layout_constraintBottom_toBottomOf="@+id/textview_thumb_release_label"
                 app:layout_constraintTop_toBottomOf="@+id/textview_thumb_title"
                 app:layout_constraintEnd_toEndOf="@+id/textview_thumb_title"/>
+
+            <TextView
+                android:id="@+id/textview_thumb_genres_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/item_style"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_thumb_release_label"
+                tools:text="genre list"
+            />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
