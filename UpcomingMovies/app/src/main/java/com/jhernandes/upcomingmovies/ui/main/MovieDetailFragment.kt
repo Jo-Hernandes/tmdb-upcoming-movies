@@ -3,6 +3,7 @@ package com.jhernandes.upcomingmovies.ui.main
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
@@ -43,7 +44,11 @@ class MovieDetailFragment : DialogFragment() {
     }
 
     private fun showGenreString (view : TextView, genres : List<MovieGenre>?) {
-        view.text = genres?.joinToString(separator = " - ", transform = { it.name })
+        if (genres.isNullOrEmpty()) {
+            view.visibility = GONE
+        } else {
+            view.text = genres.joinToString(separator = " - ", transform = { it.name })
+        }
     }
 
 

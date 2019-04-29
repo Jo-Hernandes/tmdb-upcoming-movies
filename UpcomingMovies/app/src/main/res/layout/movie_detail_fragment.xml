@@ -67,6 +67,8 @@
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra, ipsum ut aliquam molestie, nibh sem finibus odio, ac maximus lectus urna a est. Cras."
                     android:layout_marginTop="@dimen/medium_padding"
                     android:text="@{movie.movieResume}"
+                    android:maxLines="10"
+                    android:ellipsize="end"
                 />
 
                 <TextView
